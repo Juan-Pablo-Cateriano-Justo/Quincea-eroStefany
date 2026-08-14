@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis 15 Años - Stefany</title>
 
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-   
+    /* VARIABLES DE COLOR */
     :root {
       --gold-primary: #d4af37;
       --gold-light: #f7e7a0;
@@ -36,7 +36,7 @@
       min-height: 100vh;
     }
 
-    /* CONTENEDOR PRINCIPAL TIPO MÓVIL */
+    
     .card-container {
       width: 100%;
       max-width: 480px;
@@ -46,7 +46,7 @@
       position: relative;
     }
 
-  
+    
     .hero-section {
       position: relative;
       height: 480px;
@@ -89,6 +89,7 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
 
+    /* SECCIÓN DE DEDICATORIA */
     .message-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -116,7 +117,7 @@
       font-size: 1.1rem;
     }
 
-    /* SECCIÓN CONTEO REGRESIVO CON FOTO 2 (CARROZA) */
+    
     .countdown-section {
       position: relative;
       padding: 60px 20px 50px;
@@ -174,7 +175,7 @@
       margin-top: 2px;
     }
 
-
+    /* BLOQUE FECHA DESTACADA */
     .date-section {
       background-color: var(--white);
       padding: 35px 15px 25px;
@@ -224,7 +225,7 @@
       line-height: 1;
     }
 
-
+    /* BOTONES */
     .btn {
       display: inline-block;
       width: 90%;
@@ -248,13 +249,14 @@
       color: #fff;
     }
 
+   
     .gold-divider {
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
       margin: 10px 0 30px 0;
     }
 
-    /* SECCIÓN UBICACIÓN */
+    
     .location-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -282,7 +284,7 @@
       margin: 10px 0 20px;
     }
 
-  
+    /* GALERÍA DE FOTOS (CON FOTO 3 Y COMPLEMENTOS) */
     .gallery-section {
       padding: 35px 20px;
       background: var(--white);
@@ -394,7 +396,7 @@
 
   <div class="card-container">
 
-
+    
     <div class="hero-section">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -403,7 +405,7 @@
       </div>
     </div>
 
-
+    
     <div class="message-section">
       <div class="message-box">
         <p class="message-text">
@@ -413,7 +415,7 @@
       </div>
     </div>
 
-   
+    
     <div class="countdown-section">
       <div class="countdown-overlay"></div>
       <div class="countdown-content">
@@ -480,7 +482,7 @@
 
     <div class="gold-divider"></div>
 
-    <!-- SECCIÓN UBICACIÓN -->
+    
     <div class="location-section">
       <h2 class="location-title">Lugar</h2>
       <p class="location-details">
@@ -489,7 +491,7 @@
       </p>
       <div class="location-time">8:00 pm</div>
 
-      <!-- Botón configurado con tu ubicación en Google Maps -->
+      
       <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">
         VER MAPA
       </a>
@@ -497,7 +499,7 @@
 
     <div class="gold-divider"></div>
 
-    <!-- ITINERARIO -->
+    
     <div class="itinerary-section">
       <h2 class="itinerary-title">ITINERARIO</h2>
 
@@ -538,9 +540,9 @@
 
   </div>
 
-
+  
   <script>
-
+   
     const eventDate = new Date("October 10, 2026 20:00:00").getTime();
 
     const updateTimer = () => {
