@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis 15 Años - Stefany</title>
 
-  
+  <!-- Fuentes de Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Librería AOS para animaciones al hacer Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    /* VARIABLES DE COLOR */
     :root {
       --gold-primary: #d4af37;
       --gold-light: #f7e7a0;
@@ -34,9 +36,9 @@
       display: flex;
       justify-content: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    
     .card-container {
       width: 100%;
       max-width: 480px;
@@ -46,7 +48,7 @@
       position: relative;
     }
 
-    
+    /* HERO CON EFECTO PARALLAX */
     .hero-section {
       position: relative;
       height: 480px;
@@ -56,6 +58,7 @@
       justify-content: flex-end;
       align-items: center;
       padding-bottom: 25px;
+      transition: background-position 0.1s ease-out;
     }
 
     .hero-overlay {
@@ -89,7 +92,7 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
 
-    /* SECCIÓN DE DEDICATORIA */
+    /* MENSAJE */
     .message-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -117,7 +120,7 @@
       font-size: 1.1rem;
     }
 
-    
+    /* CONTEO REGRESIVO */
     .countdown-section {
       position: relative;
       padding: 60px 20px 50px;
@@ -158,6 +161,11 @@
       padding: 10px 6px;
       border-radius: 8px;
       min-width: 68px;
+      transition: transform 0.3s ease;
+    }
+
+    .timer-block:hover {
+      transform: translateY(-5px);
     }
 
     .timer-number {
@@ -175,7 +183,7 @@
       margin-top: 2px;
     }
 
-    /* BLOQUE FECHA DESTACADA */
+    /* FECHA DESTACADA */
     .date-section {
       background-color: var(--white);
       padding: 35px 15px 25px;
@@ -196,11 +204,12 @@
       flex: 1;
       max-width: 110px;
       background: #fff;
+      transition: all 0.3s ease;
     }
 
     .date-col.active {
       border-color: var(--gold-primary);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
       transform: scale(1.05);
     }
 
@@ -225,7 +234,7 @@
       line-height: 1;
     }
 
-    /* BOTONES */
+    /* BOTONES INTERACTIVOS CON ANIMACIÓN PULSO */
     .btn {
       display: inline-block;
       width: 90%;
@@ -242,21 +251,39 @@
       transition: all 0.3s ease;
       cursor: pointer;
       font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+      }
     }
 
     .btn:hover {
       background: var(--gold-primary);
       color: #fff;
+      transform: scale(1.02);
     }
 
-   
     .gold-divider {
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
       margin: 10px 0 30px 0;
     }
 
-    
+    /* UBICACIÓN */
     .location-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -284,7 +311,7 @@
       margin: 10px 0 20px;
     }
 
-    /* GALERÍA DE FOTOS (CON FOTO 3 Y COMPLEMENTOS) */
+    /* GALERÍA */
     .gallery-section {
       padding: 35px 20px;
       background: var(--white);
@@ -302,9 +329,14 @@
       width: 100%;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
       border: 3px solid var(--gold-light);
       margin-bottom: 15px;
+      transition: transform 0.4s ease;
+    }
+
+    .main-photo-card:hover {
+      transform: scale(1.02);
     }
 
     .main-photo-card img {
@@ -313,7 +345,7 @@
       display: block;
     }
 
-    /* ITINERARIO */
+    /* ITINERARIO CON ANIMACIÓN EN LÍNEA */
     .itinerary-section {
       background: #fff;
       padding: 35px 20px 45px;
@@ -345,7 +377,7 @@
 
     .timeline-item {
       position: relative;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       display: flex;
       align-items: center;
     }
@@ -379,16 +411,17 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      width: 26px;
-      height: 26px;
+      width: 30px;
+      height: 30px;
       background: var(--gold-primary);
       border-radius: 50%;
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 14px;
       border: 2px solid #fff;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
     }
   </style>
 </head>
@@ -396,18 +429,18 @@
 
   <div class="card-container">
 
-    
-    <div class="hero-section">
+    <!-- PORTADA -->
+    <div class="hero-section" id="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content">
+      <div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
         <h1 class="hero-title">Stefany</h1>
         <p class="hero-subtitle">XV Años 👑</p>
       </div>
     </div>
 
-    
+    <!-- DEDICATORIA CON ANIMACIÓN FADE-UP -->
     <div class="message-section">
-      <div class="message-box">
+      <div class="message-box" data-aos="fade-up" data-aos-duration="1000">
         <p class="message-text">
           Hay eventos en la vida que son muy especiales por sí solos, pero poder compartirlos con quienes más quiero los convierte en momentos únicos e inolvidables.
         </p>
@@ -415,10 +448,10 @@
       </div>
     </div>
 
-    
+    <!-- CONTEO REGRESIVO -->
     <div class="countdown-section">
       <div class="countdown-overlay"></div>
-      <div class="countdown-content">
+      <div class="countdown-content" data-aos="fade-up" data-aos-duration="1000">
         <div class="script-header">solo faltan</div>
         
         <div class="timer-grid">
@@ -444,9 +477,9 @@
       </div>
     </div>
 
-    <!-- FECHA Y BOTÓN DE WHATSAPP -->
+    <!-- FECHA Y BOTÓN WHATSAPP -->
     <div class="date-section">
-      <div class="date-table">
+      <div class="date-table" data-aos="zoom-in" data-aos-delay="100">
         <div class="date-col">
           <div class="day-name">Viernes</div>
           <div class="month-name">Octubre</div>
@@ -464,47 +497,45 @@
         </div>
       </div>
 
-      <!-- Botón de asistencia que abre WhatsApp directamente -->
-      <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn">
+      <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn btn-pulse" data-aos="flip-up">
         CONFIRMAR ASISTENCIA
       </a>
     </div>
 
     <div class="gold-divider"></div>
 
-    <!-- RETRATO PRINCIPAL DE STEFANY (FOTO 3) -->
+    <!-- GALERÍA -->
     <div class="gallery-section">
-      <h2 class="gallery-title">Nuestra Quinceañera</h2>
-      <div class="main-photo-card">
+      <h2 class="gallery-title" data-aos="fade-down">Nuestra Quinceañera</h2>
+      <div class="main-photo-card" data-aos="zoom-in" data-aos-duration="1000">
         <img src="foto3.jpg" alt="Stefany en el Castillo">
       </div>
     </div>
 
     <div class="gold-divider"></div>
 
-    
+    <!-- UBICACIÓN -->
     <div class="location-section">
-      <h2 class="location-title">Lugar</h2>
-      <p class="location-details">
+      <h2 class="location-title" data-aos="fade-down">Lugar</h2>
+      <p class="location-details" data-aos="fade-up">
         Acompáñanos a celebrar este gran día.<br>
         <strong>Ubicación de la Recepción</strong>
       </p>
-      <div class="location-time">8:00 pm</div>
+      <div class="location-time" data-aos="zoom-in">8:00 pm</div>
 
-      
-      <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">
+      <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn" data-aos="flip-up">
         VER MAPA
       </a>
     </div>
 
     <div class="gold-divider"></div>
 
-    
+    <!-- ITINERARIO -->
     <div class="itinerary-section">
-      <h2 class="itinerary-title">ITINERARIO</h2>
+      <h2 class="itinerary-title" data-aos="fade-down">ITINERARIO</h2>
 
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item" data-aos="fade-right">
           <div class="timeline-content">
             <div class="timeline-time">09:00 pm</div>
             <div class="timeline-event">Entrada</div>
@@ -512,7 +543,7 @@
           <div class="timeline-icon">👠</div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item" data-aos="fade-left">
           <div class="timeline-content">
             <div class="timeline-time">09:30 pm</div>
             <div class="timeline-event">Vals</div>
@@ -520,7 +551,7 @@
           <div class="timeline-icon">💃</div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item" data-aos="fade-right">
           <div class="timeline-content">
             <div class="timeline-time">09:45 pm</div>
             <div class="timeline-event">Brindis</div>
@@ -528,7 +559,7 @@
           <div class="timeline-icon">🥂</div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item" data-aos="fade-left">
           <div class="timeline-content">
             <div class="timeline-time">10:00 pm</div>
             <div class="timeline-event">Cena</div>
@@ -540,9 +571,17 @@
 
   </div>
 
-  
+  <!-- LIBRERÍA JS PARA LAS ANIMACIONES (AOS) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script>
-   
+    // Inicializar Animaciones al Scroll
+    AOS.init({
+      once: true, // Las animaciones suceden una sola vez al hacer scroll hacia abajo
+      duration: 800
+    });
+
+    // Conteo regresivo
     const eventDate = new Date("October 10, 2026 20:00:00").getTime();
 
     const updateTimer = () => {
@@ -559,16 +598,20 @@
         document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
         document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
         document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-      } else {
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
       }
     };
 
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    // Efecto Parallax suave en la imagen de portada al hacer scroll
+    window.addEventListener('scroll', () => {
+      const scrollValue = window.scrollY;
+      const hero = document.getElementById('hero');
+      if (scrollValue < 500) {
+        hero.style.backgroundPositionY = `${scrollValue * 0.3}px`;
+      }
+    });
   </script>
 
 </body>
