@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 Años - Stefany</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold-primary: #d4af37;
+      --gold-light: #f7e7a0;
+      --gold-dark: #b8860b;
+      --bg-cream: #faf6f0;
+      --text-dark: #333333;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .card-container {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--white);
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-section {
+      position: relative;
+      height: 380px;
+      background: url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.2rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      line-height: 1;
+    }
+
+    .hero-subtitle {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 4px;
+      color: var(--gold-light);
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    /* SECCIÓN DE DEDICATORIA / MENSAJE */
+    .message-section {
+      background-color: var(--bg-cream);
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .message-box {
+      background: #ffffff;
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+      position: relative;
+    }
+
+    .message-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .message-footer {
+      font-weight: 600;
+      margin-top: 15px;
+      color: var(--gold-dark);
+      font-size: 1.05rem;
+    }
+
+    .countdown-section {
+      position: relative;
+      padding: 60px 20px 40px;
+      background: url('photo2.jpg') center/cover no-repeat;
+      text-align: center;
+      color: white;
+    }
+
+    .countdown-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .countdown-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .script-header {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: var(--gold-light);
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .timer-block {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(247, 231, 160, 0.4);
+      padding: 10px 8px;
+      border-radius: 8px;
+      min-width: 65px;
+    }
+
+    .timer-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .timer-label {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* BLOQUE FECHA DESTACADA */
+    .date-section {
+      background-color: var(--white);
+      padding: 30px 15px;
+      text-align: center;
+    }
+
+    .date-table {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .date-col {
+      border: 1.5px solid var(--gold-primary);
+      padding: 10px 12px;
+      border-radius: 6px;
+      flex: 1;
+      max-width: 110px;
+      background: #fff;
+    }
+
+    .date-col.active {
+      box-shadow: 0 0 0 3px var(--gold-primary);
+      transform: scale(1.05);
+    }
+
+    .day-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .month-name {
+      font-size: 0.85rem;
+      color: #666;
+      margin: 4px 0;
+    }
+
+    .day-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      line-height: 1;
+    }
+
+    /* BOTONES */
+    .btn {
+      display: inline-block;
+      width: 90%;
+      padding: 14px 20px;
+      border: 2px solid var(--gold-primary);
+      background: #ffffff;
+      color: var(--text-dark);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--gold-primary);
+      color: #fff;
+    }
+
+    /* DIVISOR DE LÍNEA DORADA */
+    .gold-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+      margin: 10px 0 30px 0;
+    }
+
+    /* SECCIÓN UBICACIÓN */
+    .location-section {
+      background-color: var(--bg-cream);
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .location-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+
+    .location-details {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .location-time {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      margin: 10px 0 20px;
+    }
+
+    /* SECCIÓN ITINERARIO */
+    .itinerary-section {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .itinerary-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: var(--gold-primary);
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 2px;
+      background: var(--gold-primary);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(odd) {
+      justify-content: flex-start;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end;
+      text-align: left;
+    }
+
+    .timeline-content {
+      width: 42%;
+    }
+
+    .timeline-time {
+      font-family: 'Oswald', sans-serif;
+      color: var(--gold-dark);
+      font-size: 1rem;
+    }
+
+    .timeline-event {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 24px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+
+    <div class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Stefany</h1>
+        <p class="hero-subtitle">XV Años 👑</p>
+      </div>
+    </div>
+
+    <div class="message-section">
+      <div class="message-box">
+        <p class="message-text">
+          Hay eventos en la vida que son muy especiales por sí solos, pero poder compartirlos con quienes más quiero los convierte en momentos únicos e inolvidables.
+        </p>
+        <p class="message-footer">¡Te espero en mi fiesta!</p>
+      </div>
+    </div>
+
+    <div class="countdown-section">
+      <div class="countdown-overlay"></div>
+      <div class="countdown-content">
+        <div class="script-header">solo faltan</div>
+        
+        <div class="timer-grid">
+          <div class="timer-block">
+            <div id="days" class="timer-number">00</div>
+            <div class="timer-label">Días</div>
+          </div>
+          <div class="timer-block">
+            <div id="hours" class="timer-number">00</div>
+            <div class="timer-label">Horas</div>
+          </div>
+          <div class="timer-block">
+            <div id="minutes" class="timer-number">00</div>
+            <div class="timer-label">Minutos</div>
+          </div>
+          <div class="timer-block">
+            <div id="seconds" class="timer-number">00</div>
+            <div class="timer-label">Segundos</div>
+          </div>
+        </div>
+
+        <div class="script-header">para este día</div>
+      </div>
+    </div>
+
+    <div class="date-section">
+      <div class="date-table">
+        <div class="date-col">
+          <div class="day-name">Viernes</div>
+          <div class="month-name">Octubre</div>
+          <div class="day-number">09</div>
+        </div>
+        <div class="date-col active">
+          <div class="day-name">Sábado</div>
+          <div class="month-name">Octubre</div>
+          <div class="day-number">10</div>
+        </div>
+        <div class="date-col">
+          <div class="day-name">Domingo</div>
+          <div class="month-name">Octubre</div>
+          <div class="day-number">11</div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn">
+        CONFIRMAR ASISTENCIA
+      </a>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <!-- SECCIÓN UBICACIÓN Y MAPA -->
+    <div class="location-section">
+      <h2 class="location-title">Lugar</h2>
+      <p class="location-details">
+        Se realizará en la recepción.<br>
+        <strong>Ubicación del evento</strong>
+      </p>
+      <div class="location-time">8:00 pm</div>
+
+      <!-- Botón configurado con tu enlace exacto de Google Maps -->
+      <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">
+        VER MAPA
+      </a>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <!-- ITINERARIO -->
+    <div class="itinerary-section">
+      <h2 class="itinerary-title">ITINERARIO</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:00 pm</div>
+            <div class="timeline-event">Entrada</div>
+          </div>
+          <div class="timeline-icon">👠</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:30 pm</div>
+            <div class="timeline-event">Vals</div>
+          </div>
+          <div class="timeline-icon">💃</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:45 pm</div>
+            <div class="timeline-event">Brindis</div>
+          </div>
+          <div class="timeline-icon">🥂</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">10:00 pm</div>
+            <div class="timeline-event">Cena</div>
+          </div>
+          <div class="timeline-icon">🍽️</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const eventDate = new Date("October 10, 2026 20:00:00").getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const difference = eventDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+      } else {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+      }
+    };
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+
+</body>
+</html>
