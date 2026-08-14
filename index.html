@@ -10,9 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Librería AOS para animaciones al hacer Scroll -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <style>
     :root {
       --gold-primary: #d4af37;
@@ -48,7 +45,20 @@
       position: relative;
     }
 
-    /* HERO CON EFECTO PARALLAX */
+    /* ESTILOS DE ANIMACIÓN DE REVELADO (JS APPLIES .visible) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HERO */
     .hero-section {
       position: relative;
       height: 480px;
@@ -58,7 +68,7 @@
       justify-content: flex-end;
       align-items: center;
       padding-bottom: 25px;
-      transition: background-position 0.1s ease-out;
+      will-change: background-position;
     }
 
     .hero-overlay {
@@ -92,7 +102,7 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
 
-    /* MENSAJE */
+    /* DEDICATORIA */
     .message-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -183,7 +193,7 @@
       margin-top: 2px;
     }
 
-    /* FECHA DESTACADA */
+    /* FECHA */
     .date-section {
       background-color: var(--white);
       padding: 35px 15px 25px;
@@ -234,7 +244,7 @@
       line-height: 1;
     }
 
-    /* BOTONES INTERACTIVOS CON ANIMACIÓN PULSO */
+    /* BOTONES INTERACTIVOS */
     .btn {
       display: inline-block;
       width: 90%;
@@ -251,8 +261,6 @@
       transition: all 0.3s ease;
       cursor: pointer;
       font-weight: 600;
-      position: relative;
-      overflow: hidden;
     }
 
     .btn-pulse {
@@ -260,15 +268,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-      }
+      0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
     }
 
     .btn:hover {
@@ -281,34 +283,6 @@
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
       margin: 10px 0 30px 0;
-    }
-
-    /* UBICACIÓN */
-    .location-section {
-      background-color: var(--bg-cream);
-      padding: 35px 20px;
-      text-align: center;
-    }
-
-    .location-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.8rem;
-      color: var(--gold-dark);
-      margin-bottom: 5px;
-    }
-
-    .location-details {
-      margin-bottom: 15px;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.5;
-    }
-
-    .location-time {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.8rem;
-      color: var(--gold-primary);
-      margin: 10px 0 20px;
     }
 
     /* GALERÍA */
@@ -345,7 +319,35 @@
       display: block;
     }
 
-    /* ITINERARIO CON ANIMACIÓN EN LÍNEA */
+    /* UBICACIÓN */
+    .location-section {
+      background-color: var(--bg-cream);
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .location-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      color: var(--gold-dark);
+      margin-bottom: 5px;
+    }
+
+    .location-details {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .location-time {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      margin: 10px 0 20px;
+    }
+
+    /* ITINERARIO */
     .itinerary-section {
       background: #fff;
       padding: 35px 20px 45px;
@@ -432,15 +434,15 @@
     <!-- PORTADA -->
     <div class="hero-section" id="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
+      <div class="hero-content reveal">
         <h1 class="hero-title">Stefany</h1>
         <p class="hero-subtitle">XV Años 👑</p>
       </div>
     </div>
 
-    <!-- DEDICATORIA CON ANIMACIÓN FADE-UP -->
+    <!-- DEDICATORIA -->
     <div class="message-section">
-      <div class="message-box" data-aos="fade-up" data-aos-duration="1000">
+      <div class="message-box reveal">
         <p class="message-text">
           Hay eventos en la vida que son muy especiales por sí solos, pero poder compartirlos con quienes más quiero los convierte en momentos únicos e inolvidables.
         </p>
@@ -451,7 +453,7 @@
     <!-- CONTEO REGRESIVO -->
     <div class="countdown-section">
       <div class="countdown-overlay"></div>
-      <div class="countdown-content" data-aos="fade-up" data-aos-duration="1000">
+      <div class="countdown-content reveal">
         <div class="script-header">solo faltan</div>
         
         <div class="timer-grid">
@@ -477,9 +479,9 @@
       </div>
     </div>
 
-    <!-- FECHA Y BOTÓN WHATSAPP -->
+    <!-- FECHA Y BOTÓN DE WHATSAPP -->
     <div class="date-section">
-      <div class="date-table" data-aos="zoom-in" data-aos-delay="100">
+      <div class="date-table reveal">
         <div class="date-col">
           <div class="day-name">Viernes</div>
           <div class="month-name">Octubre</div>
@@ -497,7 +499,7 @@
         </div>
       </div>
 
-      <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn btn-pulse" data-aos="flip-up">
+      <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn btn-pulse reveal">
         CONFIRMAR ASISTENCIA
       </a>
     </div>
@@ -506,8 +508,8 @@
 
     <!-- GALERÍA -->
     <div class="gallery-section">
-      <h2 class="gallery-title" data-aos="fade-down">Nuestra Quinceañera</h2>
-      <div class="main-photo-card" data-aos="zoom-in" data-aos-duration="1000">
+      <h2 class="gallery-title reveal">Nuestra Quinceañera</h2>
+      <div class="main-photo-card reveal">
         <img src="foto3.jpg" alt="Stefany en el Castillo">
       </div>
     </div>
@@ -516,14 +518,14 @@
 
     <!-- UBICACIÓN -->
     <div class="location-section">
-      <h2 class="location-title" data-aos="fade-down">Lugar</h2>
-      <p class="location-details" data-aos="fade-up">
+      <h2 class="location-title reveal">Lugar</h2>
+      <p class="location-details reveal">
         Acompáñanos a celebrar este gran día.<br>
         <strong>Ubicación de la Recepción</strong>
       </p>
-      <div class="location-time" data-aos="zoom-in">8:00 pm</div>
+      <div class="location-time reveal">8:00 pm</div>
 
-      <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn" data-aos="flip-up">
+      <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn reveal">
         VER MAPA
       </a>
     </div>
@@ -532,10 +534,10 @@
 
     <!-- ITINERARIO -->
     <div class="itinerary-section">
-      <h2 class="itinerary-title" data-aos="fade-down">ITINERARIO</h2>
+      <h2 class="itinerary-title reveal">ITINERARIO</h2>
 
       <div class="timeline">
-        <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-item reveal">
           <div class="timeline-content">
             <div class="timeline-time">09:00 pm</div>
             <div class="timeline-event">Entrada</div>
@@ -543,7 +545,7 @@
           <div class="timeline-icon">👠</div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-item reveal">
           <div class="timeline-content">
             <div class="timeline-time">09:30 pm</div>
             <div class="timeline-event">Vals</div>
@@ -551,7 +553,7 @@
           <div class="timeline-icon">💃</div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-item reveal">
           <div class="timeline-content">
             <div class="timeline-time">09:45 pm</div>
             <div class="timeline-event">Brindis</div>
@@ -559,7 +561,7 @@
           <div class="timeline-icon">🥂</div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-item reveal">
           <div class="timeline-content">
             <div class="timeline-time">10:00 pm</div>
             <div class="timeline-event">Cena</div>
@@ -571,48 +573,7 @@
 
   </div>
 
-  <!-- LIBRERÍA JS PARA LAS ANIMACIONES (AOS) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script>
-    // Inicializar Animaciones al Scroll
-    AOS.init({
-      once: true, // Las animaciones suceden una sola vez al hacer scroll hacia abajo
-      duration: 800
-    });
-
-    // Conteo regresivo
-    const eventDate = new Date("October 10, 2026 20:00:00").getTime();
-
-    const updateTimer = () => {
-      const now = new Date().getTime();
-      const difference = eventDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-      }
-    };
-
-    setInterval(updateTimer, 1000);
-    updateTimer();
-
-    // Efecto Parallax suave en la imagen de portada al hacer scroll
-    window.addEventListener('scroll', () => {
-      const scrollValue = window.scrollY;
-      const hero = document.getElementById('hero');
-      if (scrollValue < 500) {
-        hero.style.backgroundPositionY = `${scrollValue * 0.3}px`;
-      }
-    });
-  </script>
-
+  <!-- VÍNCULO A TU SCRIPT INDEPENDIENTE -->
+  <script src="app.js"></script>
 </body>
 </html>
