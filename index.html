@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis 15 Años - Stefany</title>
 
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+   
     :root {
       --gold-primary: #d4af37;
       --gold-light: #f7e7a0;
       --gold-dark: #b8860b;
       --bg-cream: #faf6f0;
-      --text-dark: #333333;
+      --text-dark: #2c2c2c;
       --white: #ffffff;
     }
 
@@ -27,37 +29,39 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
+      background-color: #0f0f10;
       color: var(--text-dark);
       display: flex;
       justify-content: center;
       min-height: 100vh;
     }
 
+    /* CONTENEDOR PRINCIPAL TIPO MÓVIL */
     .card-container {
       width: 100%;
       max-width: 480px;
       background-color: var(--white);
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      box-shadow: 0 0 35px rgba(0,0,0,0.6);
       overflow: hidden;
       position: relative;
     }
 
+  
     .hero-section {
       position: relative;
-      height: 380px;
-      background: url('hero.jpg') center/cover no-repeat;
+      height: 480px;
+      background: url('foto1.jpg') center top / cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      padding-bottom: 20px;
+      padding-bottom: 25px;
     }
 
     .hero-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.75) 100%);
     }
 
     .hero-content {
@@ -69,22 +73,22 @@
 
     .hero-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 4.2rem;
-      color: #ffffff;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      font-size: 4.8rem;
+      color: var(--gold-light);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
       line-height: 1;
     }
 
     .hero-subtitle {
       font-family: 'Oswald', sans-serif;
       font-size: 1.4rem;
-      letter-spacing: 4px;
-      color: var(--gold-light);
+      letter-spacing: 5px;
+      color: #ffffff;
       margin-top: 5px;
       text-transform: uppercase;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
 
-    /* SECCIÓN DE DEDICATORIA / MENSAJE */
     .message-section {
       background-color: var(--bg-cream);
       padding: 35px 20px;
@@ -97,7 +101,6 @@
       border-radius: 12px;
       padding: 25px 20px;
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-      position: relative;
     }
 
     .message-text {
@@ -110,13 +113,14 @@
       font-weight: 600;
       margin-top: 15px;
       color: var(--gold-dark);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
+    /* SECCIÓN CONTEO REGRESIVO CON FOTO 2 (CARROZA) */
     .countdown-section {
       position: relative;
-      padding: 60px 20px 40px;
-      background: url('photo2.jpg') center/cover no-repeat;
+      padding: 60px 20px 50px;
+      background: url('foto2.jpg') center/cover no-repeat;
       text-align: center;
       color: white;
     }
@@ -124,7 +128,7 @@
     .countdown-overlay {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.65);
     }
 
     .countdown-content {
@@ -134,24 +138,25 @@
 
     .script-header {
       font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
+      font-size: 3.2rem;
       color: var(--gold-light);
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
     }
 
     .timer-grid {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       margin: 20px 0;
     }
 
     .timer-block {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(247, 231, 160, 0.4);
-      padding: 10px 8px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--gold-primary);
+      padding: 10px 6px;
       border-radius: 8px;
-      min-width: 65px;
+      min-width: 68px;
     }
 
     .timer-number {
@@ -169,10 +174,10 @@
       margin-top: 2px;
     }
 
-    /* BLOQUE FECHA DESTACADA */
+
     .date-section {
       background-color: var(--white);
-      padding: 30px 15px;
+      padding: 35px 15px 25px;
       text-align: center;
     }
 
@@ -184,16 +189,17 @@
     }
 
     .date-col {
-      border: 1.5px solid var(--gold-primary);
+      border: 1.5px solid #e0e0e0;
       padding: 10px 12px;
-      border-radius: 6px;
+      border-radius: 8px;
       flex: 1;
       max-width: 110px;
       background: #fff;
     }
 
     .date-col.active {
-      box-shadow: 0 0 0 3px var(--gold-primary);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
       transform: scale(1.05);
     }
 
@@ -218,7 +224,7 @@
       line-height: 1;
     }
 
-    /* BOTONES */
+
     .btn {
       display: inline-block;
       width: 90%;
@@ -231,9 +237,10 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 6px;
       transition: all 0.3s ease;
       cursor: pointer;
+      font-weight: 600;
     }
 
     .btn:hover {
@@ -241,7 +248,6 @@
       color: #fff;
     }
 
-    /* DIVISOR DE LÍNEA DORADA */
     .gold-divider {
       height: 2px;
       background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
@@ -251,19 +257,19 @@
     /* SECCIÓN UBICACIÓN */
     .location-section {
       background-color: var(--bg-cream);
-      padding: 30px 20px;
+      padding: 35px 20px;
       text-align: center;
     }
 
     .location-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       color: var(--gold-dark);
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .location-details {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       font-size: 0.95rem;
       color: #444;
       line-height: 1.5;
@@ -276,10 +282,39 @@
       margin: 10px 0 20px;
     }
 
-    /* SECCIÓN ITINERARIO */
+  
+    .gallery-section {
+      padding: 35px 20px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .gallery-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+
+    .main-photo-card {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border: 3px solid var(--gold-light);
+      margin-bottom: 15px;
+    }
+
+    .main-photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ITINERARIO */
     .itinerary-section {
       background: #fff;
-      padding: 40px 20px;
+      padding: 35px 20px 45px;
       text-align: center;
     }
 
@@ -330,7 +365,7 @@
     .timeline-time {
       font-family: 'Oswald', sans-serif;
       color: var(--gold-dark);
-      font-size: 1rem;
+      font-size: 1.05rem;
     }
 
     .timeline-event {
@@ -342,15 +377,15 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       background: var(--gold-primary);
       border-radius: 50%;
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 13px;
       border: 2px solid #fff;
     }
   </style>
@@ -359,6 +394,7 @@
 
   <div class="card-container">
 
+
     <div class="hero-section">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -366,6 +402,7 @@
         <p class="hero-subtitle">XV Años 👑</p>
       </div>
     </div>
+
 
     <div class="message-section">
       <div class="message-box">
@@ -376,6 +413,7 @@
       </div>
     </div>
 
+   
     <div class="countdown-section">
       <div class="countdown-overlay"></div>
       <div class="countdown-content">
@@ -404,6 +442,7 @@
       </div>
     </div>
 
+    <!-- FECHA Y BOTÓN DE WHATSAPP -->
     <div class="date-section">
       <div class="date-table">
         <div class="date-col">
@@ -423,6 +462,7 @@
         </div>
       </div>
 
+      <!-- Botón de asistencia que abre WhatsApp directamente -->
       <a href="https://wa.me/51953608514?text=si%20asistir%C3%A9." target="_blank" class="btn">
         CONFIRMAR ASISTENCIA
       </a>
@@ -430,16 +470,26 @@
 
     <div class="gold-divider"></div>
 
-    <!-- SECCIÓN UBICACIÓN Y MAPA -->
+    <!-- RETRATO PRINCIPAL DE STEFANY (FOTO 3) -->
+    <div class="gallery-section">
+      <h2 class="gallery-title">Nuestra Quinceañera</h2>
+      <div class="main-photo-card">
+        <img src="foto3.jpg" alt="Stefany en el Castillo">
+      </div>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <!-- SECCIÓN UBICACIÓN -->
     <div class="location-section">
       <h2 class="location-title">Lugar</h2>
       <p class="location-details">
-        Se realizará en la recepción.<br>
-        <strong>Ubicación del evento</strong>
+        Acompáñanos a celebrar este gran día.<br>
+        <strong>Ubicación de la Recepción</strong>
       </p>
       <div class="location-time">8:00 pm</div>
 
-      <!-- Botón configurado con tu enlace exacto de Google Maps -->
+      <!-- Botón configurado con tu ubicación en Google Maps -->
       <a href="https://www.google.com/maps/dir/-16.4095669,-71.5241735/-17.1802248,-70.8982033/@-16.837603,-72.0446212,9z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">
         VER MAPA
       </a>
